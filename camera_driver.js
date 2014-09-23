@@ -1,8 +1,11 @@
 var util = require('util');
+var url = require('url');
 var spawn = require('child_process').spawn;
 var Device = require('zetta-device');
 
 var STREAM_MAGIC_BYTES = 'jsmp'; // Must be 4 bytes
+
+var VIEWER_BASE_URL = 'http://video-viewer.herokuapp.com';
 
 var Camera = module.exports = function() {
   Device.call(this);
@@ -24,6 +27,15 @@ var Camera = module.exports = function() {
 };
 util.inherits(Camera, Device);
 
+Camera.prototype._generateUrl = function() {
+  var u = url.parse(VIEWER_BASE_URL, true);
+  u.query.stream = 'ws://some-stream';
+  u.query.width = this.width;
+  u.query.height = this.height;
+  this.url = url.format(u);
+  return this.url;
+};
+
 Camera.prototype.init = function(config) {
   config
     .state('ready')
@@ -37,6 +49,9 @@ Camera.prototype.init = function(config) {
     .map('set-video-size', this.setVideoSize, [{ type: 'number', name: 'width', value: this.width}, { type: 'number', name: 'height', value: this.height}])
     .map('set-camera', this.setCamera, [{ type: 'number', name: 'cameraId'}])
     .stream('video', this.streamVideo, { binary: true });
+  
+  // setup url;
+  this._generateUrl();
 };
 
 Camera.prototype.streamVideo = function(stream) {
