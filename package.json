@@ -14,5 +14,20 @@
     "websockets",
     "mpeg",
     "ffmpeg"
-  ]
+  ],
+  "directories": {
+    "example": "example"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zettajs/zetta-jsmpeg-camera.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zettajs/zetta-jsmpeg-camera/issues"
+  },
+  "homepage": "https://github.com/zettajs/zetta-jsmpeg-camera"
 }
