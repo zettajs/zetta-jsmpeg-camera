@@ -34,7 +34,9 @@ and input http://localhost:3000/ in the url for the Zetta browser.
 2. Locate the camera device and navigate to the api response, find the link titled
 `video`. Copy the `href` property on it, should look something like `ws://localhost:3000/servers/d6b9dc4e-ca67-498e-b04e-99abaec0746c/events?topic=camera%2Fa7c5d8f9-e9bd-4dc8-b097-eb0c43e4b029%2Fvideo`.
 
-3. Navigate to http://video-viewer.herokuapp.com, and input that in the `Websocket URL` box and submit. You should
+3. Call the start transition on the camera.
+
+4. Navigate to http://video-viewer.herokuapp.com, and input that in the `Websocket URL` box and submit. You should
 see yourself on video.
 
 

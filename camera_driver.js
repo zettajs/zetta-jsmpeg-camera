@@ -27,15 +27,6 @@ var Camera = module.exports = function() {
 };
 util.inherits(Camera, Device);
 
-Camera.prototype._generateUrl = function() {
-  var u = url.parse(VIEWER_BASE_URL, true);
-  u.query.stream = 'ws://some-stream';
-  u.query.width = this.width;
-  u.query.height = this.height;
-  this.url = url.format(u);
-  return this.url;
-};
-
 Camera.prototype.init = function(config) {
   config
     .state('ready')
@@ -114,6 +105,15 @@ Camera.prototype.setCamera = function(id, cb) {
     this.cameraId = id;
   }
   cb();
+};
+
+Camera.prototype._generateUrl = function() {
+  var u = url.parse(VIEWER_BASE_URL, true);
+  u.query.stream = 'ws://some-stream';
+  u.query.width = this.width;
+  u.query.height = this.height;
+  this.url = url.format(u);
+  return this.url;
 };
 
 
