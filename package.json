@@ -6,7 +6,7 @@
   "author": "Adam Magaluk <AdamMagaluk@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "zetta-device": "^0.3.0"
+    "zetta-device": "^0.7.0"
   },
   "keywords": [
     "zetta",
