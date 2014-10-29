@@ -1,8 +1,8 @@
 {
   "name": "zetta-jsmpeg-camera",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "jsmpeg websocket stream through Zetta",
-  "main": "index.js",
+  "main": "camera_driver.js",
   "author": "Adam Magaluk <AdamMagaluk@gmail.com>",
   "license": "MIT",
   "dependencies": {
